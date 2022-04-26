@@ -6,15 +6,14 @@
 package com.sig.controller;
 
 import com.sig.model.InvoiceHeader;
+import com.sig.model.InvoiceHeaderTableModel;
 import com.sig.model.InvoiceLine;
 import com.sig.view.InvoiceFrame;
 import java.awt.List;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.io.FileReader;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -86,7 +85,7 @@ public class InvoiceActionListener implements ActionListener{
     private void deleteInvoice() {
 
     }
-
+// this is a comment
     private void loadFiles() throws FileNotFoundException, IOException {
 JFileChooser fileChooser = new JFileChooser ();
 try{
