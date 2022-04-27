@@ -6,6 +6,13 @@
 package com.sig.view;
 
 import com.sig.controller.InvoiceActionListener;
+import com.sig.model.InvoiceHeader;
+import com.sig.model.InvoiceHeaderTableModel;
+import com.sig.model.InvoiceLine;
+import com.sig.model.InvoiceLineTableModel;
+import java.util.ArrayList;
+import javax.swing.JLabel;
+import javax.swing.JTable;
 
 public class InvoiceFrame extends javax.swing.JFrame {
 
@@ -165,7 +172,7 @@ public class InvoiceFrame extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(16, 16, 16)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel1)
                             .addComponent(invNumLbl))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -263,4 +270,122 @@ public class InvoiceFrame extends javax.swing.JFrame {
     private javax.swing.JMenuItem loadMenuItem;
     private javax.swing.JMenuItem saveMenuItem;
     // End of variables declaration//GEN-END:variables
+    InvoiceActionListener invoiceActionListener = new InvoiceActionListener(this);
+    private ArrayList<InvoiceHeader> invoicesArray;
+    private ArrayList<InvoiceLine> invoiceLines; 
+    private InvoiceHeaderTableModel headerTableModel;
+    private InvoiceLineTableModel invoiceLineTableModel;
+    
+    
+    
+    public InvoiceActionListener getInvoiceActionListener() {
+        return invoiceActionListener;
+    }
+
+    public void setInvoiceActionListener(InvoiceActionListener invoiceActionListener) {
+        this.invoiceActionListener = invoiceActionListener;
+    }
+
+    public ArrayList<InvoiceHeader> getInvoicesArray() {
+        return invoicesArray;
+    }
+
+    public void setInvoicesArray(ArrayList<InvoiceHeader> invoicesArray) {
+        this.invoicesArray = invoicesArray;
+    }
+
+    public InvoiceHeaderTableModel getHeaderTableModel() {
+        return headerTableModel;
+    }
+
+    public void setHeaderTableModel(InvoiceHeaderTableModel headerTableModel) {
+        this.headerTableModel = headerTableModel;
+    }
+    
+    public InvoiceHeader getInvObject(int invCode) {
+        for (InvoiceHeader invoiceHeader : invoicesArray) {
+            if (invoiceHeader.getNum() == invCode) {
+                return invoiceHeader;
+            }
+        }
+        return null;
+    }
+
+    public JTable getInvHTbl() {
+        return invHTbl;
+    }
+
+    public void setInvHTbl(JTable invHTbl) {
+        this.invHTbl = invHTbl;
+    }
+
+    public JTable getInvLTbl() {
+        return invLTbl;
+    }
+
+    public void setInvLTbl(JTable invLTbl) {
+        this.invLTbl = invLTbl;
+    }
+
+    public InvoiceLineTableModel getInvoiceLineTableModel() {
+        return invoiceLineTableModel;
+    }
+
+    public void setInvoiceLineTableModel(InvoiceLineTableModel invoiceLineTableModel) {
+        this.invoiceLineTableModel = invoiceLineTableModel;
+    }
+
+    public InvoiceActionListener getActionListener() {
+        return actionListener;
+    }
+
+    public void setActionListener(InvoiceActionListener actionListener) {
+        this.actionListener = actionListener;
+    }
+
+    public ArrayList<InvoiceLine> getInvoiceLines() {
+        return invoiceLines;
+    }
+
+    public void setInvoiceLines(ArrayList<InvoiceLine> invoiceLines) {
+        this.invoiceLines = invoiceLines;
+    }
+
+    public JLabel getCustNameLbl() {
+        return custNameLbl;
+    }
+
+    public void setCustNameLbl(JLabel custNameLbl) {
+        this.custNameLbl = custNameLbl;
+    }
+
+    public JLabel getInvDateLbl() {
+        return invDateLbl;
+    }
+
+    public void setInvDateLbl(JLabel invDateLbl) {
+        this.invDateLbl = invDateLbl;
+    }
+
+    public JLabel getInvNumLbl() {
+        return invNumLbl;
+    }
+
+    public void setInvNumLbl(JLabel invNumLbl) {
+        this.invNumLbl = invNumLbl;
+    }
+
+    public JLabel getInvTotalLbl() {
+        return invTotalLbl;
+    }
+
+    public void setInvTotalLbl(JLabel invTotalLbl) {
+        this.invTotalLbl = invTotalLbl;
+    }
+    
+    
+    
+    
+    
+    
 }

@@ -9,7 +9,6 @@ import com.sig.model.InvoiceHeader;
 import com.sig.model.InvoiceHeaderTableModel;
 import com.sig.model.InvoiceLine;
 import com.sig.view.InvoiceFrame;
-import java.awt.List;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
@@ -22,10 +21,10 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import java.util.List;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
+
 
 /**
  *
@@ -50,7 +49,7 @@ public class InvoiceActionListener implements ActionListener{
        try {
            loadFiles();
        } catch (IOException ex) {
-           Logger.getLogger(InvoiceActionListener.class.getName()).log(Level.SEVERE, null, ex);
+           
        }
    }
            break;
@@ -102,9 +101,9 @@ int result = fileChooser.showOpenDialog(frame);
           String str1 = arr[0];
           String str2 = arr[1];
           String str3 = arr[2];
-          int code = Integar.parseInt(str1);
+          int code = Integer.parseInt(str1);
           Date invoiceDate = dateFormat.parse(str2);
-          InvoiceHeader header = new Invoice Header (code , str3 , invoiceDate);
+          InvoiceHeader header = new InvoiceHeader (code , str3 , invoiceDate);
           invoiceHeaders.add(header);
     }
      frame.setInvoicesArray(invoiceHeaders);
@@ -114,19 +113,18 @@ int result = fileChooser.showOpenDialog(frame);
           File lineFile = fileChooser.getSelectedFile();
           Path linePath = Paths.get(lineFile.getAbsolutePath());
           List<String> lineLines = Files.readAllLines(linePath);
-          ArrayList<InvoiceLine> invoiceLines = new ArrayList<>();
           for (String lineLine : lineLines)
           {
-           String[] arr= lineLine.split(",");   
-            String str1 = arr[0]; // invoice num (int)
-          String str2 = arr[1];  // item name  (String)
-          String str3 = arr[2];  // price  (double)
-          String str4 = arr[3];  // count    (int)
-          int invCode = Integar.parseInt(str1);
+          String[] arr= lineLine.split(",");   
+          String str1 = arr[0]; 
+          String str2 = arr[1]; 
+          String str3 = arr[2]; 
+          String str4 = arr[3];
+          int invCode = Integer.parseInt(str1);
           double price = Double.parseDouble(str3);
-          int count = Integar.parseInt(str4);
+          int count = Integer.parseInt(str4);
           InvoiceHeader inv = frame.getInvObject(invCode);
-          InvoiceLine line = new InvoiceLine(str4 , price , count , inv);
+          InvoiceLine line = new InvoiceLine(str2 , price , count , inv);
           inv.getLines().add(line);
           }
       }
@@ -144,20 +142,13 @@ JOptionPane.showMessageDialog(frame , ex.getMessage(),"Error", JOptionPane.ERROR
 }
 
     private void saveFiles() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+       }
 
     private void createNewInvoice() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
     }
 
-    private void createNewInvoice() {
+  
+}
 
-    }
 
-    private void saveFiles() {
- 
-    }
-    
-}   
+  

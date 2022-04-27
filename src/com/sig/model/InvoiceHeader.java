@@ -47,6 +47,9 @@ public class InvoiceHeader {
     }
 
     public ArrayList<InvoiceLine> getLines() {
+        if (lines == null){
+            lines = new ArrayList<>();
+        }
         return lines;
     }
 
