@@ -9,7 +9,6 @@ import com.sig.model.InvoiceHeader;
 import com.sig.model.InvoiceLine;
 import com.sig.model.InvoiceLineTableModel;
 import com.sig.view.InvoiceFrame;
-import java.awt.Frame;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import javax.swing.event.ListSelectionEvent;
